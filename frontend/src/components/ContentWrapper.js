@@ -1,29 +1,47 @@
-import TopBar from './TopBar';
-import ContentRowMovies from './ContentRowMovies';
-import LastMovieInDB from './LastMovieInDB'
-import GenresInDB from './GenresInDB'
-import Footer from './Footer'
-import MovieTable from './MovieTable';
-
+import ContentRowUsers from "./ContentRowUsers";
+import Footer from "./Footer";
+import NewSideBar from "./NewSideBar";
+import { Box } from "@mui/system";
+import { Card } from "@mui/material";
 
 const ContentWrapper = () => {
   return (
-    <div id="content-wrapper" className="d-flex flex-column">
-      <div id="content">
-        <TopBar />
-        <div className="container-fluid">
-          <div className="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
-          </div>
-          <ContentRowMovies />
-          <div className="row">
-            <LastMovieInDB />
-            <GenresInDB />
-          </div>
-          <MovieTable/>
-        </div>
-      </div>
-      <Footer />
+    <div className="backg">
+      <Box
+        sx={{
+          display: "flex",
+          bgcolor: "transparent",
+        }}
+      >
+        <Card
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "15vw",
+            height: "95vh",
+            bgcolor: "black",
+            opacity: "0.9",
+            margin: "20px 10px 0px 0px",
+          }}
+        >
+          <NewSideBar />
+        </Card>
+
+        <Card
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            bgcolor: "black",
+            width: "80vw",
+            opacity: "0.9",
+            margin: "20px 0px 0px",
+          }}
+        >
+          <ContentRowUsers />
+        </Card>
+      </Box>
     </div>
   );
 };

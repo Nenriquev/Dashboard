@@ -1,39 +1,37 @@
-import PropTypes from 'prop-types';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { Avatar } from "@mui/material";
 
-const Card = (props) => {
+export default function ImgMediaCard(props) {
   return (
-    <div className="col-md-4 mb-4">
-      <div className={`card border-left-${props.color} shadow h-100 py-2`}>
-        <div className="card-body">
-          <div className="row no-gutters align-items-center">
-            <div className="col mr-2">
-              <div className={`text-xs font-weight-bold text-${props.color} text-uppercase mb-1`}>
-                {props.title}
-              </div>
-              <div className="h5 mb-0 font-weight-bold text-gray-800">{props.quantity}</div>
-            </div>
-            <div className="col-auto">
-              <i className={`fas ${props.icon} fa-2x text-gray-300`}></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Card
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "10px",
+        marginLeft: "10px",
+        height: "80%",
+      }}
+    >
+      <Typography gutterBottom variant="h5" component="div">
+        Last User Create
+      </Typography>
+      <Avatar src={props.img} sx={{ width: 80, height: 80 }} />
+      <CardContent
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
+        <Typography gutterBottom variant="h5" component="div">
+          {props.names}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {props.email}
+        </Typography>
+      </CardContent>
+    </Card>
   );
-};
-
-Card.propTypes = {
-  title: PropTypes.string,
-  color: PropTypes.oneOf(['success', 'primary', 'danger', 'warning']), 
-  quantity: PropTypes.number,
-  icon: PropTypes.string
 }
-
-Card.defaultProps = {
-  title:'Titulo', 
-  color:'primary', 
-  quantity: 0,
-  icon:'fa-film'
-}
-
-export default Card;

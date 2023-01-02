@@ -1,9 +1,8 @@
-import logoDH from "../assets/images/logo-DH.png";
+import logoDH from "../assets/images/astro.png";
 import ContentWrapper from './ContentWrapper';
-import ContentRowMovies from './ContentRowMovies'
+import ContentRowUsers from "./ContentRowUsers";
 import Error404 from "./404";
 import { Link, Route, Routes } from "react-router-dom";
-import MovieTable from "./MovieTable";
 
 const SideBar = () => {
   return (
@@ -17,7 +16,7 @@ const SideBar = () => {
         to="/"
       >
         <div className="sidebar-brand-icon">
-          <img className="w-100" src={logoDH} alt="Digital House"></img>
+          <img className="w-50" src={logoDH} alt="Digital House"></img>
         </div>
       </Link>
 
@@ -26,7 +25,7 @@ const SideBar = () => {
       <li className="nav-item active">
         <Link className="nav-link" to="/">
           <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard - DH movies</span>
+          <span>Dashboard - Astropizza</span>
         </Link>
       </li>
 
@@ -35,18 +34,12 @@ const SideBar = () => {
       <div className="sidebar-heading">Actions</div>
 
       <li className="nav-item">
-        <Link className="nav-link collapsed" to="/movies">
+        <Link className="nav-link collapsed" to="/users">
           <i className="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <span>Users</span>
         </Link>
       </li>
 
-      <li className="nav-item">
-        <Link className="nav-link" to="/">
-          <i className="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span>
-        </Link>
-      </li>
 
       <li className="nav-item">
         <Link className="nav-link" to="/tables">
@@ -61,8 +54,7 @@ const SideBar = () => {
 
     <Routes>
       <Route path='/' element={<ContentWrapper/>} />
-      <Route path='/movies' element={<ContentRowMovies/>} />
-      <Route path='/tables' element={<MovieTable/>} />
+      <Route path='/users' element={<ContentRowUsers/>} />
       <Route path="*" element={<Error404/>}/> 
     </Routes>
     </>
