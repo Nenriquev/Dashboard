@@ -7,4 +7,32 @@
   position: fixed;
 }
 
+.title{
+  font-family: 'Console';
+  text-transform: uppercase;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+  animation: marquee 10s linear infinite;
+}
+
+.hiddening{
+  overflow: hidden;
+  box-shadow: inset 0px 5px 6px 4px rgb(0 0 0 / 62%);
+}
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+#root > header > div > div > div.MuiBox-root.css-qr05x8{
+  display: flex;
+  justify-content: center;
+}
+
 

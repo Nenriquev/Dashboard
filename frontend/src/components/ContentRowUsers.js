@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import ImgMediaCard from "./Card";
 import CardTotalUsers from "./CardTotalUsers";
-import { Card } from "@mui/material";
-import { Box } from "@mui/material";
+
 
 const ContentRowUsers = (props) => {
   const [users, setUsers] = useState([]);
@@ -35,33 +34,18 @@ const ContentRowUsers = (props) => {
   }, []);
 
   return (
-    <>
-      <Card
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          bgcolor: "#1E0943",
-          margin: "10px 20px 10px",
-          padding: "0px 20px 10px",
-          color: "white",
-        }}
-      >
+    <div className="userRow">
         <h1>Users</h1>
-        <Box sx={{ display: "flex" }}>
-          <div>
+        
+          <div className="userCol">
             <CardTotalUsers number={users} />
-          </div>
-          <div>
             <ImgMediaCard
               img={dataLastUser.img}
               names={dataLastUser.names}
               email={dataLastUser.email}
             />
           </div>
-        </Box>
-      </Card>
-    </>
+    </div>
   );
 };
 

@@ -1,40 +1,26 @@
-import ContentRowUsers from "./ContentRowUsers";
+import ContentRowProductsList from "./ContentRowProductsList";
 import NewSideBar from "./NewSideBar";
-import { Box } from "@mui/system";
-import { Card } from "@mui/material";
 import Navbar from './Navbar'
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+
 
 const ContentWrapper = () => {
   return (
     <>
     <Navbar />
     <div className="container">
-      <Box sx={{display: "flex"}}>
-        <Card
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+      <div className="main-container">
           <NewSideBar />
-        </Card>
-
-        <Card
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            bgcolor: "black",
-            width: "80vw",
-            opacity: "0.9",
-            margin: "20px 0px 0px",
-          }}
-        >
-          <ContentRowUsers />
-        </Card>
-      </Box>
-    </div></>
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<HomePage/>}/>
+              <Route path="/products" element={<ContentRowProductsList/>}/>
+            </Routes>
+          </div>
+        </div>
+    </div>
+    </>
   );
 };
 

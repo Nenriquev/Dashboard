@@ -15,9 +15,9 @@ function NewSideBar() {
         height: "100%",
         color: "white"
     }}>
-        <img src={LogoAstro} width="100%"/>
+        <img src={LogoAstro} width="100%" alt="logo"/>
         <ListDividers />
-        <img src={AstroGif} width="90%" style={{transform: "scaleX(-1)"}}/>
+        <img src={AstroGif} width="90%" style={{transform: "scaleX(-1)"}} alt='astrogif'/>
       </Box>
     </>
   );
