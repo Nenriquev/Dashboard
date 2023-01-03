@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import ImgMediaCard from "./CardRow";
 import CardProductsList from "./CardProductsList";
-import { Card } from "@mui/material";
 import { Box } from "@mui/material";
 
 const ContentRowProducts = (props) => {
