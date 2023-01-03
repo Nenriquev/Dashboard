@@ -1,4 +1,6 @@
 import ContentRowProductsList from "./ContentRowProductsList";
+import ContentRowUsers from "./ContentRowUsers"
+import ContentRowProducts from "./ContentRowProducts"
 import NewSideBar from "./NewSideBar";
 import Navbar from './Navbar'
 import { Routes, Route } from "react-router-dom";
@@ -10,12 +12,14 @@ const ContentWrapper = () => {
     <>
     <Navbar />
     <div className="container">
-      <div className="main-container">
+      <div>
           <NewSideBar />
           <div className="content">
             <Routes>
               <Route path="/" element={<HomePage/>}/>
-              <Route path="/products" element={<ContentRowProductsList/>}/>
+              <Route path="/users" element={<ContentRowUsers/>}/>
+              <Route path="/products" element={<ContentRowProducts/>}/>
+              <Route path="/list" element={<ContentRowProductsList/>}/>
             </Routes>
           </div>
         </div>

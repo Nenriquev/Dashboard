@@ -16,14 +16,14 @@ const ContentRowProducts = (props) => {
   }, []);
 
   return (
-    <div>
-      <h1>Products</h1>
-      <Box sx={{ display: "flex", overflow: "scroll", flexWrap: "wrap" }}>
+    <>
+      <h1>Listado de Productos</h1>
+      <Box sx={{ display: "flex",  flexWrap: "wrap" , height:"90vh", marginLeft:"5%"}}>
         {products.map((element, index) => {
           return <CardProductsList {...element} key={index} />;
         })}
       </Box>
-    </div>
+    </>
   );
 };
 

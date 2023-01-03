@@ -7,7 +7,8 @@ import Typography from "@mui/material/Typography";
 
 export default function CardProductsList(props) {
   return (
-    <Card sx={{  margin: "20px", width:"20%", }}>
+    <>
+    <Card sx={{  margin: "20px", width:"20%" }}>
       <CardContent>
         <Typography
           variant="h5"
@@ -38,5 +39,6 @@ export default function CardProductsList(props) {
         </Typography>
       </CardContent>
     </Card>
+    </>
   );
 }

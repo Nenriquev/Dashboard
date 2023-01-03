@@ -33,6 +33,9 @@ export default function ListDividers() {
       <ListItem button>
         <ListItemText primary="Productos" onClick={(e) => routeChange('/products')} />
       </ListItem>
+      <ListItem button>
+        <ListItemText primary="Listado" onClick={(e) => routeChange('/list')} />
+      </ListItem>
       <Divider light />
     </List>
   );

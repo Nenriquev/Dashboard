@@ -56,7 +56,9 @@ div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCar
 	width: 80%;
 	height: 30%;
 	flex-direction: row;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: -200px;
 }
 
 .card {
