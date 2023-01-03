@@ -1,28 +1,20 @@
 import ContentRowUsers from "./ContentRowUsers";
-import Footer from "./Footer";
 import NewSideBar from "./NewSideBar";
 import { Box } from "@mui/system";
 import { Card } from "@mui/material";
+import Navbar from './Navbar'
 
 const ContentWrapper = () => {
   return (
-    <div className="backg">
-      <Box
-        sx={{
-          display: "flex",
-          bgcolor: "transparent",
-        }}
-      >
+    <>
+    <Navbar />
+    <div className="container">
+      <Box sx={{display: "flex"}}>
         <Card
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            width: "15vw",
-            height: "95vh",
-            bgcolor: "black",
-            opacity: "0.9",
-            margin: "20px 10px 0px 0px",
           }}
         >
           <NewSideBar />
@@ -42,7 +34,7 @@ const ContentWrapper = () => {
           <ContentRowUsers />
         </Card>
       </Box>
-    </div>
+    </div></>
   );
 };
 

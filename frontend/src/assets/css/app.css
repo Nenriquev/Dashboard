@@ -2,14 +2,43 @@ body {
     margin:0;
     font-family: 'Press Start 2P', cursive;
     font-family: 'Roboto', sans-serif;
+    background-image: url('../images/background.jpg');
+    height: 100vh;
+    overflow: hidden;
 }
 
-.backg {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 100vh;
-    background-image: url('../images/background.jpg');
-    background-size: cover;
+.container{
+	width:100%;
+	position:absolute;
+	top: 68px;
+	bottom:0;
 }
+
+#root > div > div{
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: space-between;
+}
+
+
+
+div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-xr6m4h-MuiPaper-root-MuiCard-root{
+ width: 10%;
+ margin: 0;
+}
+
+
+/*sidebar*/
+div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-ynszu-MuiPaper-root-MuiCard-root{
+ width: 10%;
+ height: auto;
+ background-color: rgb(37, 36, 36);
+ border-right: 3px solid #5e1b88;
+ border-bottom: 3px solid #5e1b88;
+}
+
+div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-15n07uq-MuiPaper-root-MuiCard-root{
+    margin: 0;
+}
+
