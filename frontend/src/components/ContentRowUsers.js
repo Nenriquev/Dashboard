@@ -42,8 +42,10 @@ const ContentRowUsers = (props) => {
           flexDirection: "column",
           justifyContent: "space-around",
           bgcolor: "#1E0943",
-          margin: "10px 20px 10px",
+          margin: "20px 10px 20px 20px",
           padding: "0px 20px 10px",
+          height:"60vh",
+          width:"50%",
           color: "white",
         }}
       >
