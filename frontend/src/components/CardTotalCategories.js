@@ -13,7 +13,7 @@ export default function CardTotalProducts(props) {
         <Typography
           variant="h5"
           color="white"
-          sx={{ display: "flex", alignItems: "center" , fontSize:"20px"}}
+          sx={{ display: "flex", alignItems: "center" , fontSize:"20px", textAlign:"left"}}
         >
           Pizzas: {props.pizzas}
           <br />

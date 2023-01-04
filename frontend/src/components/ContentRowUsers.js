@@ -1,5 +1,6 @@
 import CardRow from "./CardRow";
 import CardLastUser from "./CardLastUser";
+import CardUsersSales from "./CardUsersSales";
 import { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 
@@ -10,6 +11,8 @@ const ContentRowUsers = (props) => {
     email: "-",
     img: "-",
   });
+  const [dataUsersSales, setDataUsersSales] = useState([]);
+
   useEffect(() => {
     fetch("/api/users/")
       .then((response) => response.json())
@@ -31,14 +34,30 @@ const ContentRowUsers = (props) => {
               img: users.users.img,
             });
           });
-        console.log(dataLastUser);
+
+        fetch("/api/users/list")
+          .then((response) => response.json())
+          .then((users) => {
+            let dataUsers = [];
+            users.users.forEach((element, index) =>
+              dataUsers.push({
+                top: index + 1,
+                id: element.id,
+                name: element.names,
+                email: element.email,
+                orders: element.orders,
+                image: element.image,
+              })
+            );
+            setDataUsersSales(dataUsers);
+          });
       });
   }, []);
 
   return (
     <>
       <div className="ContentRowUsersConteiner">
-      <Typography
+        <Typography
           gutterBottom
           fontFamily={"Console"}
           variant="h3"
@@ -47,14 +66,13 @@ const ContentRowUsers = (props) => {
         >
           Users
         </Typography>
-       
 
         <div className="ContentRowUsers">
           <div>
             {data.map((element, index) => {
               return (
                 <>
-                  <CardRow key={index} props={element} />
+                  <CardRow props={element} key={index} />
                 </>
               );
             })}
@@ -66,7 +84,23 @@ const ContentRowUsers = (props) => {
               email={dataLastUser.email}
             />
           </div>
-        </div>
+          </div>
+          <div className="ContentRowUsersSales">
+          <Typography
+              gutterBottom
+              fontFamily={"Console"}
+              variant="h3"
+              component="div"
+              sx={{ textShadow: "0px 0px 0, 1px 2px 2px #5e1b88" , marginTop:"20px"}}
+            >
+              Top 3 Buyers
+            </Typography>
+            <div className="ContentRowUsersBox">
+            {dataUsersSales.map((element, index) => {
+              return <CardUsersSales {...element} key={index} />;
+            })}
+          </div>
+          </div>
       </div>
     </>
   );

@@ -29,13 +29,13 @@ export default function ListDividers() {
       </ListItem>
       <Divider />
       <ListItem button divider>
-        <ListItemText primary="Usuarios" onClick={(e) => routeChange('/users')} />
+        <ListItemText primary="Users" onClick={(e) => routeChange('/users')} />
       </ListItem>
       <ListItem button>
-        <ListItemText primary="Productos" onClick={(e) => routeChange('/products')} />
+        <ListItemText primary="Products" onClick={(e) => routeChange('/products')} />
       </ListItem>
       <ListItem button>
-        <ListItemText primary="Listado" onClick={(e) => routeChange('/list')} />
+        <ListItemText primary="Product List" onClick={(e) => routeChange('/list')} />
       </ListItem>
       <Divider light />
     </List>

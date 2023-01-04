@@ -14,9 +14,9 @@ export default function CardTopFive(props) {
         <Typography
           variant="h5"
           color="white"
-          sx={{ display: "flex", alignItems: "center" , fontSize:"20px"}}
+          sx={{ display: "flex", alignItems: "center" , fontSize:"45px", justifyContent:"center", marginTop:"20px"}}
         >
-          <LocalGroceryStoreIcon fontSize="large"/> {props.sales}
+          <LocalGroceryStoreIcon sx={{ fontSize:"70px"}}/> {props.sales}
         </Typography>
       </CardContent>
     </Card>

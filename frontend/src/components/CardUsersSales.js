@@ -8,13 +8,14 @@ export default function CardTopFive(props) {
   return (
     <Card
       sx={{
-        width: "17%",
+        width: "25%",
         boxShadow: "1px 6px 10px 4px rgb(0 0 0 / 60%)",
         display: "flex",
         displayDirection: "column",
         justifyContent: "center",
         alignContent: "center",
         textAlign: "center",
+        marginTop: "15px",
       }}
       className="card"
     >
@@ -31,10 +32,9 @@ export default function CardTopFive(props) {
         <Typography
           variant="h5"
           color="white"
-          sx={{ display: "flex", alignItems: "center", fontSize: "20px", textTransform: "capitalize" }}
+          sx={{ display: "flex", alignItems: "center", fontSize: "20px" }}
         >
           <div>
-            <br />
             <Typography
               sx={{
                 display: "flex",
@@ -44,14 +44,14 @@ export default function CardTopFive(props) {
                 textTransform: "capitalize",
               }}
             >
-              <Avatar
-                src={`http://localhost:3001/img/pizzas/${props.image}`}
-                sx={{ width: 100, height: 100 }}
-              />
+              <Avatar src={props.image} sx={{ width: 100, height: 100 }} />
             </Typography>
+            <br />
             {props.name}
             <br />
-            Sales: {props.value}
+            {props.email}
+            <br />
+            Sales: {props.orders}
           </div>
         </Typography>
       </CardContent>

@@ -116,7 +116,7 @@ const ContentRowProducts = () => {
             {data.map((element, index) => {
               return (
                 <>
-                  <CardRow key={index} props={element} />
+                  <CardRow  props={element} key={index}/>
                 </>
               );
             })}
