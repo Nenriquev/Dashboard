@@ -2,6 +2,7 @@ import CardRow from "./CardRow";
 import CardTotalCategories from "./CardTotalCategories";
 import CardTopFive from "./CardTopFive";
 import CardTotalSales from "./CardTotalSales";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 
 const ContentRowProducts = () => {
@@ -16,29 +17,39 @@ const ContentRowProducts = () => {
       .then((products) => {
         let five = [
           {
-            top: 1,
             name: products.top5Products[0].name,
             value: products.top5Products[0].value,
+            top: 1,
+            image: products.top5Products[0].image,
+            category: products.top5Products[0].category,
           },
           {
-            top: 2,
             name: products.top5Products[1].name,
-            value: products.top5Products[1].value,
+            value: products.top5Products[0].value,
+            top: 2,
+            image: products.top5Products[1].image,
+            category: products.top5Products[1].category,
           },
           {
-            top: 3,
             name: products.top5Products[2].name,
-            value: products.top5Products[2].value,
+            value: products.top5Products[0].value,
+            top: 3,
+            image: products.top5Products[2].image,
+            category: products.top5Products[2].category,
           },
           {
-            top: 4,
             name: products.top5Products[3].name,
-            value: products.top5Products[3].value,
+            value: products.top5Products[0].value,
+            top: 4,
+            image: products.top5Products[3].image,
+            category: products.top5Products[3].category,
           },
           {
-            top: 5,
             name: products.top5Products[4].name,
-            value: products.top5Products[4].value,
+            value: products.top5Products[0].value,
+            top: 5,
+            image: products.top5Products[4].image,
+            category: products.top5Products[4].category,
           },
         ];
         setTop(five);
@@ -49,7 +60,7 @@ const ContentRowProducts = () => {
     fetch("/api/products/sales")
       .then((response) => response.json())
       .then((products) => {
-        let sales = [{sales:products.totalSales }];
+        let sales = [{ sales: products.totalSales }];
         setTotalSales(sales);
       });
   }, []);
@@ -90,32 +101,52 @@ const ContentRowProducts = () => {
 
   return (
     <>
-      <div className="ContentRowProducts">
-        <div className="ContentRowProductsCategories">
-          {data.map((element, index) => {
-            return (
-              <>
-                <CardRow key={index} props={element} />
-              </>
-            );
-          })}
-          <div>
+      
+        <div className="ContentRowProductsConteiner">
+          <Typography
+            gutterBottom
+            fontFamily={"Console"}
+            variant="h3"
+            component="div"
+            sx={{ textShadow: "0px 0px 0, 1px 2px 2px #5e1b88" }}
+          >
+            Products
+          </Typography>
+          <div className="ContentRowProductsBox">
+            {data.map((element, index) => {
+              return (
+                <>
+                  <CardRow key={index} props={element} />
+                </>
+              );
+            })}
+
             {categories.map((element, index) => {
               return <CardTotalCategories {...element} key={index} />;
             })}
-          </div>
-          <div>
+
             {totalSales.map((element, index) => {
-                console.log(totalSales);
+              console.log(totalSales);
               return <CardTotalSales {...element} key={index} />;
             })}
           </div>
-        </div>
-        <div className="ContentRowProductsTopFive">
-          {top.map((element, index) => {
-            return <CardTopFive {...element} key={index} />;
-          })}
-        </div>
+          <div className="CardTopFiveBox">
+            <Typography
+              gutterBottom
+              fontFamily={"Console"}
+              variant="h3"
+              component="div"
+              sx={{ textShadow: "0px 0px 0, 1px 2px 2px #5e1b88" }}
+            >
+              Top 5 Products
+            </Typography>
+            <div className="CardTopFiveTop">
+              {top.map((element, index) => {
+                return <CardTopFive {...element} key={index} />;
+              })}
+            </div>
+          </div>
+        
       </div>
     </>
   );

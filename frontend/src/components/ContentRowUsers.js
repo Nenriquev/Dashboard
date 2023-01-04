@@ -1,6 +1,7 @@
 import CardRow from "./CardRow";
 import CardLastUser from "./CardLastUser";
 import { useEffect, useState } from "react";
+import Typography from "@mui/material/Typography";
 
 const ContentRowUsers = (props) => {
   const [data, setData] = useState([]);
@@ -36,19 +37,36 @@ const ContentRowUsers = (props) => {
 
   return (
     <>
-      {data.map((element, index) => {
-        return (
-          <>
-            <CardRow key={index} props={element} />
-          </>
-        );
-      })}
-      <div>
-        <CardLastUser
-          img={dataLastUser.img}
-          names={dataLastUser.names}
-          email={dataLastUser.email}
-        />
+      <div className="ContentRowUsersConteiner">
+      <Typography
+          gutterBottom
+          fontFamily={"Console"}
+          variant="h3"
+          component="div"
+          sx={{ textShadow: "0px 0px 0, 1px 2px 2px #5e1b88" }}
+        >
+          Users
+        </Typography>
+       
+
+        <div className="ContentRowUsers">
+          <div>
+            {data.map((element, index) => {
+              return (
+                <>
+                  <CardRow key={index} props={element} />
+                </>
+              );
+            })}
+          </div>
+          <div>
+            <CardLastUser
+              img={dataLastUser.img}
+              names={dataLastUser.names}
+              email={dataLastUser.email}
+            />
+          </div>
+        </div>
       </div>
     </>
   );

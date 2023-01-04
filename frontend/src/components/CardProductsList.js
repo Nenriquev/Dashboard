@@ -16,25 +16,27 @@ export default function CardProductsList(props) {
         >
           <Avatar src={`http://localhost:3001/img/pizzas/${props.image}`} sx={{ width: 80, height: 80 }} />
           <br/>
-          ID: {props.id}
+          ID: {props.id} 
           <br/>
           Name: {props.name}
           <br/>
           Price: ${props.price}
           <br/>
           Category: 
-          {props.category_id === 1 ? " Pizzas" : ""}
-          {props.category_id === 2 ? " Quesos" : ""}
-          {props.category_id === 3 ? " Vegetales" : ""}
-          {props.category_id === 4 ? " Carnes" : ""}
-          {props.category_id === 5 ? " Bebidas" : ""}
-          {props.category_id === 6 ? " Alcohol" : ""}
-          {props.category_id === 7 ? " Postres" : ""}
+          {props.category === 1 ? " Pizzas" : ""}
+          {props.category === 2 ? " Quesos" : ""}
+          {props.category === 3 ? " Vegetales" : ""}
+          {props.category === 4 ? " Carnes" : ""}
+          {props.category === 5 ? " Bebidas" : ""}
+          {props.category === 6 ? " Alcohol" : ""}
+          {props.category === 7 ? " Postres" : ""}
           <br/>
           Status: 
-          {props.status_id === 1 ? " Activo" : ""}
-          {props.status_id === 2 ? " Inactivo" : ""}
-          {props.status_id === 3 ? " Sin stock" : ""}
+          {props.status === 1 ? " Activo" : ""}
+          {props.status === 2 ? " Inactivo" : ""}
+          {props.status === 3 ? " Sin stock" : ""} 
+          <br/>
+          Sales: {props.value}
         </Typography>
       </CardContent>
     </Card>

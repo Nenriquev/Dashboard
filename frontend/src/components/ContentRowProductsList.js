@@ -1,23 +1,40 @@
 import { useEffect, useState } from "react";
 import CardProductsList from "./CardProductsList";
+import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 
 const ContentRowProducts = (props) => {
-  const [products, setProducts] = useState([]);
+  const [total, setTotal] = useState([]);
 
   useEffect(() => {
-    fetch("/api/products/list")
+    fetch("/api/products/sales")
       .then((response) => response.json())
       .then((products) => {
-        setProducts(products.products);
+        setTotal(products.totalProducts);
       });
   }, []);
 
   return (
     <>
-      <h1>Listado de Productos</h1>
-      <Box sx={{ display: "flex",  flexWrap: "wrap" , height:"90vh", marginLeft:"5%"}}>
-        {products.map((element, index) => {
+    <Typography
+          gutterBottom
+          fontFamily={"Console"}
+          variant="h3"
+          component="div"
+          sx={{ textShadow: "0px 0px 0, 1px 2px 2px #5e1b88", margin:"20px 0" }}
+        >
+          Listado de Productos
+        </Typography>
+      
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          height: "90vh",
+          marginLeft: "5%",
+        }}
+      >
+        {total.map((element, index) => {
           return <CardProductsList {...element} key={index} />;
         })}
       </Box>
