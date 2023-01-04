@@ -5,8 +5,8 @@ import "../assets/css/app.css";
 const HomePage = () => {
   return (
   <div className="topRow">
-    <ContentRowProducts/>
     <ContentRowUsers/>
+    <ContentRowProducts/>
   </div>);
 };
 

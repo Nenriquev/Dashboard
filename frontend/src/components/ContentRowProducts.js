@@ -1,13 +1,59 @@
 import CardRow from "./CardRow";
 import CardTotalCategories from "./CardTotalCategories";
 import CardTopFive from "./CardTopFive";
+import CardTotalSales from "./CardTotalSales";
 import { useEffect, useState } from "react";
 
 const ContentRowProducts = () => {
   const [data, setData] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [topFive, setTopFive] = useState([]);
-let top5 = []
+  const [top, setTop] = useState([]);
+  const [totalSales, setTotalSales] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/products/sales")
+      .then((response) => response.json())
+      .then((products) => {
+        let five = [
+          {
+            top: 1,
+            name: products.top5Products[0].name,
+            value: products.top5Products[0].value,
+          },
+          {
+            top: 2,
+            name: products.top5Products[1].name,
+            value: products.top5Products[1].value,
+          },
+          {
+            top: 3,
+            name: products.top5Products[2].name,
+            value: products.top5Products[2].value,
+          },
+          {
+            top: 4,
+            name: products.top5Products[3].name,
+            value: products.top5Products[3].value,
+          },
+          {
+            top: 5,
+            name: products.top5Products[4].name,
+            value: products.top5Products[4].value,
+          },
+        ];
+        setTop(five);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/products/sales")
+      .then((response) => response.json())
+      .then((products) => {
+        let sales = [{sales:products.totalSales }];
+        setTotalSales(sales);
+      });
+  }, []);
+
   useEffect(() => {
     fetch("/api/products/")
       .then((response) => response.json())
@@ -42,37 +88,35 @@ let top5 = []
       });
   }, []);
 
-  useEffect(() => {
-    fetch("/api/products/sales")
-      .then((response) => response.json())
-      .then((top) => {
-        
-        top5 = {
-            top1: {name: top.top5Products[0].name, value: top.top5Products[0].value} 
-        };
-        console.log(top5);
-      });
-  }, []);
-
   return (
     <>
-      {data.map((element, index) => {
-        return (
-          <>
-            <CardRow key={index} props={element} />
-          </>
-        );
-      })}
-      <div>
-        {categories.map((element, index) => {
-          return <CardTotalCategories {...element} key={index} />;
-        })}
-      </div>
-       {/* <div>
-          {topFive.top5Products.map((element, index) => {
+      <div className="ContentRowProducts">
+        <div className="ContentRowProductsCategories">
+          {data.map((element, index) => {
+            return (
+              <>
+                <CardRow key={index} props={element} />
+              </>
+            );
+          })}
+          <div>
+            {categories.map((element, index) => {
+              return <CardTotalCategories {...element} key={index} />;
+            })}
+          </div>
+          <div>
+            {totalSales.map((element, index) => {
+                console.log(totalSales);
+              return <CardTotalSales {...element} key={index} />;
+            })}
+          </div>
+        </div>
+        <div className="ContentRowProductsTopFive">
+          {top.map((element, index) => {
             return <CardTopFive {...element} key={index} />;
           })}
-        </div>  */}
+        </div>
+      </div>
     </>
   );
 };
