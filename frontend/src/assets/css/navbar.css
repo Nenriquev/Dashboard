@@ -19,6 +19,17 @@
   box-shadow: inset 0px 5px 6px 4px rgb(0 0 0 / 62%);
 }
 
+.box1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.box2 {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 @keyframes marquee {

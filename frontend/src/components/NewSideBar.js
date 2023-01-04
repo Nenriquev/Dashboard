@@ -11,9 +11,13 @@ function NewSideBar() {
         display:"flex",
         flexDirection: "column",
         alignItems: "center",
-        width: "100%",
-        height: "100%",
-        color: "white"
+        width: "25vh",
+        height: "92vh",
+        color: "white",
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+        borderRight: "5px solid #5e1b88",
+        borderBottom: "5px solid #5e1b88"
+      
     }}>
         <img src={LogoAstro} width="100%" alt="logo"/>
         <ListDividers />

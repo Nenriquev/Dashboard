@@ -10,6 +10,7 @@ const style = {
   width: "95%",
   maxWidth: 360,
   height: "100%",
+  marginTop: "20px"
 };
 
 export default function ListDividers() {
